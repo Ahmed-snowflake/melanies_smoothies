@@ -2,6 +2,8 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 # Write directly to the app.
 st.title(f":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -44,5 +46,4 @@ if ingredients_list:
         st.success(f'Your Smoothie is ordered,  {name_on_order}!', icon="✅")
 
 
-cnx = st.connection("snowflake")
-session = cnx.session()
+
